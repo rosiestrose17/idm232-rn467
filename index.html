@@ -14,7 +14,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="home.css" />
-    <title>Alpha</title>
+    <title>NomNom</title>
   </head>
   <!-- Page Content -->
 </html>
@@ -50,12 +50,19 @@
           Cooking Simplified, Flavor Amplified: <br />
           Where Food Meets Innovation
         </h1>
-        <div class="search-bar">
-          <input
-            class="search"
-            type="search"
-            placeholder="Discover delicious recipes..."
-          />
+        <div class="search-container">
+          <div class="search">
+            <input
+              type="text"
+              class="searchTerm"
+              placeholder="Discover Delicious Recipes"
+              onfocus="stopFloating()"
+              onblur="startFloating()"
+            />
+            <button type="submit" class="searchButton">
+              <img src="images/banner-img/search.png" alt="Search icon" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -77,28 +84,31 @@
       <h1 class="browse-title">BROWSE RECIPES</h1>
     </div>
     <div class="image-container">
-      <figure class="image-figure">
+      <figure class="image-figure" data-hover="images/Category/chicken.png">
         <img src="images/Category/15.png" alt="Image 6" />
         <figcaption>Chicken</figcaption>
       </figure>
-      <figure class="image-figure">
+      <figure class="image-figure" data-hover="images/Category/beef.png">
         <img src="images/Category/10.png" alt="Image 1" />
         <figcaption>Beef & Pork</figcaption>
       </figure>
-      <figure class="image-figure">
-        <img src="images/Category/11.png" alt="Image 2" />
+      <figure class="image-figure" data-hover="images/Category/seafood.png">
+        <img
+          src="images/Category/11.png"
+          alt="Image 2"
+          style="margin-top: -20px; padding-bottom: 25px"
+        />
         <figcaption>Fish & Seafood</figcaption>
       </figure>
-      <figure class="image-figure">
+      <figure class="image-figure" data-hover="images/Category/vegetarian.png">
         <img src="images/Category/14.png" alt="Image 5" />
         <figcaption>Vegetarian</figcaption>
       </figure>
-
-      <figure class="image-figure">
+      <figure class="image-figure" data-hover="images/Category/italian.png">
         <img src="images/Category/12.png" alt="Image 3" />
         <figcaption>Italian</figcaption>
       </figure>
-      <figure class="image-figure">
+      <figure class="image-figure" data-hover="images/Category/mexican.png">
         <img src="images/Category/13.png" alt="Image 4" />
         <figcaption>Mexican</figcaption>
       </figure>
@@ -200,6 +210,7 @@
         class="image"
         width="25%"
       />
+       <h3>© 2023 Rosie Nguyen - NomNom</h3>
       <h5>
         "Stay updated with mouthwatering recipes, culinary tips, and exclusive
         offers. <br />
@@ -226,4 +237,23 @@
       </div>
     </div>
   </div>
+  <script>
+    const imageFigures = document.querySelectorAll(".image-figure");
+
+    imageFigures.forEach((figure) => {
+      const img = figure.querySelector("img");
+      const originalImageSrc = img.getAttribute("src");
+      const hoverImageSrc = figure.getAttribute("data-hover"); // Get the hover image source
+
+      figure.addEventListener("mouseenter", () => {
+        img.style.transform = "scale(1.1)"; // Scale up the image
+        img.src = hoverImageSrc; // Change the image source
+      });
+
+      figure.addEventListener("mouseleave", () => {
+        img.style.transform = "scale(1)"; // Restore the original scale
+        img.src = originalImageSrc; // Restore the original image source
+      });
+    });
+  </script>
 </body>
