@@ -1,0 +1,842 @@
+body {
+  background-color: #000000;
+  color: white;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+.browse-title {
+  text-shadow: 3px 3px 0px red;
+  font-size: 3rem;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: 0.3s ease-in;
+  border-radius: 15px;
+  border-radius: 15px;
+  aspect-ratio: 1;
+}
+
+figure img:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.recipe-column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  padding: 0 5%;
+  position: relative;
+}
+@media (max-width: 480px) {
+  .recipe-column {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .recipe-column {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+  .nav_links {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    margin: 10px 0;
+  }
+}
+
+.oneRecOdd,
+.oneRec {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+.small-logo {
+  max-width: 100%;
+  float: left;
+  display: block;
+  width: 10%;
+}
+.top-nav {
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  padding-left: 5%;
+}
+.nav_links {
+  list-style: none;
+  text-decoration-line: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  margin-top: -2%;
+  font-size: 1.5em;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-weight: 100;
+}
+
+.nav-link {
+  margin: 0 4rem;
+}
+
+.nav-link {
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: red;
+  transform: scale(1.05);
+}
+figcaption {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+figcaption1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: lighter;
+  font-size: 1.4rem;
+}
+.image-container {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  overflow-x: auto;
+  align-items: center; /* Center-align the images vertically */
+  justify-content: center; /* Center-align the images horizontally */
+  padding: 2vw; /* Add some padding to separate images from edges */
+}
+
+.image-figure {
+  text-align: center; /* Center-align the image and caption */
+  margin-right: 10px; /* Add spacing between image containers */
+  max-width: calc(33.33% - 10px);
+}
+
+.image-figure img {
+  max-width: 100%; /* Resize images to fit container width */
+  min-width: 150px; /* Set min-width so in smaller devices it wont be too small*/
+  height: auto;
+  width: 50%;
+  transition: transform 0.2s; /* Add a smooth transition for the transform property */
+}
+
+.image-figure img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.image-figure figcaption {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 2vh; /* Change the font size */
+  transition: 0.3 ease-in;
+}
+
+.searchButton img {
+  width: 2rem; /* Adjust the size of the icon */
+  height: 2rem;
+}
+
+input.searchTerm {
+  font-size: 1em;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    width: 80%;
+  }
+
+  .searchTerm {
+    padding: 1.2rem;
+  }
+  input.searchTerm {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  input.searchTerm {
+    font-size: 12px;
+  }
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .image-container {
+    flex-wrap: wrap;
+    padding-left: 0%;
+  }
+  .image-figure {
+    flex-grow: 1;
+    width: 20%;
+  }
+  .image-figure img {
+    max-width: 75%;
+    min-width: 100px;
+  }
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 480px) {
+  .image-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 2rem;
+  }
+  .image-figure {
+    flex: 1 0 calc(50% - 10px); /* 2 columns with spacing */
+  }
+  .image-figure img {
+    max-width: 25%; /* Reduce the max-width for mobile devices */
+    min-width: 100px;
+  }
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+  .nav_links {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px; /* Add some padding for better spacing */
+  }
+
+  .nav_links {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    margin: 10px 0; /* Adjust spacing between links */
+  }
+
+  .image-container {
+    width: 100%;
+    padding: 2vw 5%; /* Adjust padding for smaller screens */
+  }
+
+  .image-figure {
+    max-width: calc(50% - 10px);
+  }
+
+  .recipe-column {
+    padding: 0 5%; /* Adjust padding for smaller screens */
+  }
+
+  .oneRec,
+  .oneRecOdd {
+    max-width: 90%;
+  }
+}
+html,
+body {
+  overflow-x: hidden;
+}
+body {
+  background-color: #000000;
+  color: white;
+}
+.small-logo {
+  max-width: 100%;
+  float: left;
+  display: block;
+  width: 10%;
+}
+.top-nav {
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  padding-left: 5%;
+}
+.nav_links {
+  list-style: none;
+  text-decoration-line: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  margin-top: -2%;
+  font-size: 1.5em;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-weight: 100;
+}
+
+.nav-link {
+  margin: 0 4rem;
+}
+
+.nav-link {
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: red;
+  transform: scale(1.05);
+}
+@media (max-width: 1200px) {
+  .nav-link {
+    margin: 0 2rem; /* Reduce the margin for smaller desktop screens */
+  }
+}
+
+.big-logo {
+  width: 100%;
+  max-width: 90%;
+  padding-bottom: 30%;
+}
+
+.banner-intro {
+  padding-left: 5%;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.rotating-circle img {
+  width: 70%; /* Adjust the width of the circle image as needed */
+  animation: spin 10s linear infinite;
+}
+
+h1 {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 2rem;
+  text-align: center;
+}
+.browse-title {
+  text-shadow: 3px 3px 0px red;
+  font-size: 3rem;
+}
+.image-container {
+  display: flex;
+  overflow-x: auto;
+  align-items: center; /* Center-align the images vertically */
+  justify-content: center; /* Center-align the images horizontally */
+  padding: 2vw; /* Add some padding to separate images from edges */
+}
+
+.image-figure {
+  text-align: center; /* Center-align the image and caption */
+  margin-right: 10px; /* Add spacing between image containers */
+  max-width: calc(33.33% - 10px);
+}
+
+.image-figure img {
+  max-width: 100%; /* Resize images to fit container width */
+  min-width: 150px; /* Set min-width so in smaller devices it wont be too small*/
+  height: auto;
+  width: 50%;
+  transition: transform 0.2s; /* Add a smooth transition for the transform property */
+}
+
+.image-figure img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.image-figure figcaption {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 2vh; /* Change the font size */
+  transition: 0.3 ease-in;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+h1.trending {
+  text-align: left;
+  padding-left: 15%;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 5px 3px 0px red;
+}
+figcaption.grid {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 75%;
+  margin: 0 auto; /* Center horizontally */
+}
+
+.item {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.item img {
+  max-width: 95%;
+  height: auto;
+}
+
+figcaption.recent {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+.newsletter-button {
+  background-color: #ffffff; /* Button background color */
+  border: 3px;
+  border-radius: 10px; /* Add rounded corners */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  padding: 1.5rem 3rem;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+.newsletter-button:hover {
+  background-color: #a10000; /* Change button color on hover */
+}
+.social-media-icons {
+  padding: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #353535;
+}
+.fa {
+  font-size: 1.75rem;
+  color: white;
+}
+.fa:hover {
+  color: black;
+  transition: color 0.3s ease-in;
+}
+.footer {
+  text-align: center; /* Center-align the content within the footer */
+  padding: 20px; /* Add padding for spacing */
+}
+
+.centered-content {
+  display: inline-block; /* Center the content as a block element */
+  text-align: left; /* Reset text alignment within the centered block */
+  max-width: 800px; /* Set a maximum width for the centered content */
+  margin: 0 auto; /* Center horizontally within the footer */
+}
+
+.image {
+  max-width: 100%; /* Ensure the image resizes proportionally */
+}
+
+/* For screens with a maximum width of 768px (tablet) */
+@media (max-width: 768px) {
+  .top-nav {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  .nav_links {
+    flex-direction: column; /* Stack the navigation links vertically */
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    margin: 20px 0; /* Add space above and below the nav links */
+  }
+}
+
+/* For screens with a maximum width of 480px (mobile) */
+@media (max-width: 480px) {
+  .top-nav {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+}
+@media (max-width: 768px) {
+  .banner {
+    display: block; /* Stack content vertically for smaller screens */
+  }
+
+  .big-logo {
+    max-width: 100%;
+  }
+
+  .banner-intro {
+    padding: 3%;
+  }
+
+  .banner-img img {
+    width: 100%;
+    object-fit: contain; /* Maintain aspect ratio and fit within the container */
+  }
+  .rotating-circle {
+    width: 35%;
+  }
+}
+@media (max-width: 480px) {
+  .big-logo {
+    max-width: 100%;
+  }
+
+  .search {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+h5 {
+  font-size: 1.2rem;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-weight: 200;
+}
+.footer .email {
+  padding-top: 2vh;
+}
+.social-media-icons {
+  padding: 1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #353535;
+}
+.name {
+  text-align: left;
+  padding-right: 1rem;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 1.3rem;
+  padding-left: 0.5rem;
+}
+.category {
+  text-align: left;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: lighter;
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+  margin-top: -15px;
+}
+.item:hover img {
+  opacity: 0.5;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .login-container {
+    width: 30%;
+  }
+}
+@media (max-width: 1024px) {
+  .big-logo {
+    max-width: 80%; /* Reduce the logo size for smaller screens */
+  }
+}
+
+/* Media query for tablets and devices */
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    padding: 5%; /* Stack content vertically on smaller screens */
+  }
+
+  .banner-content {
+    padding: 0;
+  }
+
+  .banner-content,
+  .banner-img {
+    flex: 1; /* Equalize the content and image sections on smaller screens */
+    width: 100%;
+  }
+
+  .banner-img img {
+    width: 100%; /* Make the image occupy the full width on smaller screens */
+  }
+
+  .browse-title {
+    text-shadow: 3px 3px 0px red;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 100%; /* Single column layout on tablets */
+    grid-template-rows: auto; /* Allow rows to adjust to content */
+    width: 80%; /* Wider content on tablets */
+    padding-top: 5%;
+  }
+
+  .grid .left,
+  .grid .upperright,
+  .grid .lower_right {
+    grid-column: auto; /* Reset grid column placement */
+    grid-row: auto; /* Reset grid row placement */
+    padding: 0; /* Remove padding */
+    padding-top: 5%;
+  }
+  h1.trending {
+    padding-left: 0;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0%;
+    text-shadow: 5px 3px 0px red;
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+  .grid {
+    width: 100%; /* Wider content on smaller screens */
+  }
+}
+@media (max-width: 768px) {
+  .grid1 {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    width: 90%; /* Adjust the width for better spacing on tablets */
+  }
+
+  .item1 h4,
+  .item1 h3 {
+    font-size: 2.5vh; /* Slightly reduce font size for tablets */
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+  .banner-intro > h1 {
+    font-size: 1.5rem;
+  }
+  .grid1 {
+    grid-template-columns: 1fr; /* Single column for mobile devices */
+    width: 90%; /* Adjust the width for better spacing on mobile screens */
+  }
+
+  .item1 h4,
+  .item1 h3 {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .image-figure img {
+    max-width: 10vw; /* Resize images to fit container width */
+    min-width: 120px; /* Set min-width so in smaller devices it wont be too small*/
+    height: auto;
+    transition: transform 0.2s; /* Add a smooth transition for the transform property */
+  }
+}
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.searchTerm {
+  flex: 1;
+  border: 2px solid #ce0000;
+  border-right: none;
+  padding: 1.2rem;
+  border-radius: 2rem 0 0 2rem;
+  outline: none;
+  background-color: rgba(22, 22, 22, 0.5);
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.searchButton {
+  width: 5rem; /* Adjust the size of the button */
+  height: 3.95rem; /* Adjust the size of the button */
+  background-color: #ce0000; /* Set the background color */
+  border: none;
+  border-radius: 0 2rem 2rem 0;
+  cursor: pointer;
+}
+.searchButton:hover {
+  background-color: #f86969; /* Change the background color to light pink on hover */
+}
+.searchButton img {
+  width: 2rem; /* Adjust the size of the icon */
+  height: 2rem;
+}
+
+input.searchTerm {
+  font-size: 1em;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    width: 80%;
+  }
+
+  .searchTerm {
+    padding: 1.2rem;
+  }
+  input.searchTerm {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  input.searchTerm {
+    font-size: 12px;
+  }
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .image-container {
+    flex-wrap: wrap;
+    padding-left: 0%;
+  }
+  .image-figure {
+    flex-grow: 1;
+    width: 20%;
+  }
+  .image-figure img {
+    max-width: 75%;
+    min-width: 100px;
+  }
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 480px) {
+  .image-container {
+    flex-wrap: wrap;
+  }
+  .image-figure {
+    flex: 1 0 calc(50% - 10px); /* 2 columns with spacing */
+  }
+  .image-figure img {
+    max-width: 25%; /* Reduce the max-width for mobile devices */
+    min-width: 100px;
+  }
+}
+.newsletter-button {
+  background-color: #ffffff; /* Button background color */
+  border: 3px;
+  border-radius: 10px; /* Add rounded corners */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  padding: 1.5rem 3rem;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+.newsletter-button:hover {
+  background-color: #a10000; /* Change button color on hover */
+}
+.social-media-icons {
+  padding: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #353535;
+}
+.fa {
+  font-size: 1.75rem;
+  color: white;
+}
+.fa:hover {
+  color: black;
+  transition: color 0.3s ease-in;
+}
+.footer {
+  text-align: center; /* Center-align the content within the footer */
+  padding: 20px; /* Add padding for spacing */
+}
+
+.centered-content {
+  display: inline-block;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.no-results {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 2rem;
+  color: rgb(115, 53, 53);
+}
+.filter-link a {
+  text-decoration: none;
+  color: white;
+}
+.button-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.view-all-button {
+  background-color: #f1c100;
+  color: rgb(0, 0, 0);
+  padding: 20px 50px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+  font-style: italic;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.view-all-button:hover {
+  background-color: #8d0000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
