@@ -3,7 +3,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-  <title>PHP Main Menu Dynamic</title>
+  <title>NomNom Recipes</title>
   <link rel="stylesheet" href="./styles/general.css">
 </head>
 
@@ -13,7 +13,7 @@
 <div class="top-nav">
 <img
 class="small-logo"
-src="img/small-logo.png"
+src="images/vector/small-logo.png"
 alt="small-logo"
 />
 <br />
@@ -38,68 +38,68 @@ alt="small-logo"
     <div class="search">
         <input type="search" id="search" name="search" class="searchTerm" placeholder="Discover Delicious Recipes" value="<?php echo $searchTerm; ?>">
         <button type="submit" name="submit" value="submit" class="searchButton">
-            <img src="img/search.png" alt="Search icon" />
+            <img src="images/vector/search.png" alt="Search icon" />
         </button>
     </div>
 </form>
 
 <div class="image-container">
-    <figure class="image-figure" data-hover="img/chicken.png">
+    <figure class="image-figure" data-hover="images/vector/chicken.png">
         <a href="index.php?filter=chicken,turkey" class="filter-link">
-            <img src="img/15.png" alt="Image 6" />
+            <img src="images/vector/15.png" alt="Image 6" />
             <figcaption>Chicken & Turkey</figcaption>
         </a>
     </figure>
-    <figure class="image-figure" data-hover="img/beef.png">
+    <figure class="image-figure" data-hover="images/vector/beef.png">
         <a href="index.php?filter=beef,pork"  class="filter-link">
-            <img src="img/10.png" alt="Image 1" />
+            <img src="images/vector/10.png" alt="Image 1" />
             <figcaption>Beef & Pork</figcaption>
         </a>
     </figure>
-    <figure class="image-figure" data-hover="img/seafood.png">
+    <figure class="image-figure" data-hover="images/vector/seafood.png">
         <a href="index.php?filter=fish"  class="filter-link">
-            <img src="img/11.png" alt="Image 2" style="margin-top: -20px; padding-bottom: 25px" />
+            <img src="images/vector/11.png" alt="Image 2" style="margin-top: -20px; padding-bottom: 25px" />
             <figcaption>Fish & Seafood</figcaption>
         </a>
     </figure>
-    <figure class="image-figure" data-hover="img/vegetarian.png">
+    <figure class="image-figure" data-hover="images/vector/vegetarian.png">
         <a href="index.php?filter=vegitarian" class="filter-link">
-            <img src="img/14.png" alt="Image 5" />
+            <img src="images/vector/14.png" alt="Image 5" />
             <figcaption>Vegetarian</figcaption>
         </a>
     </figure>
-    <figure class="image-figure" data-hover="img/italian.png">
+    <figure class="image-figure" data-hover="images/vector/italian.png">
      <a href="index.php?filterid=3,4,5,6,12,14,15,22,29,30" class="filter-link">
-    <img src="img/12.png" alt="Image 3" />
+    <img src="images/vector/12.png" alt="Image 3" />
     <figcaption>Italian</figcaption>
 </a>
     </figure>
-    <figure class="image-figure" data-hover="img/mexican.png">
+    <figure class="image-figure" data-hover="images/vector/mexican.png">
         <a href="index.php?filterid=7,16,13,31" class="filter-link">
-            <img src="img/13.png" alt="Image 4" />
+            <img src="images/vector/13.png" alt="Image 4" />
             <figcaption>Mexican</figcaption>
         </a>
     </figure>
 </div>
 <div class="button-container">
-  <button class="view-all-button" onclick="window.location.href='index.php'">View All Recipes</button>
+  <button class="view-all-button" onclick="window.location.href='index.php'">Browse All Recipes</button>
 </div>
- 
+ <br>
   <script>
         const imageFigures = document.querySelectorAll(".image-figure");
     
         imageFigures.forEach((figure) => {
           const img = figure.querySelector("img");
           const originalImageSrc = img.getAttribute("src");
-          const hoverImageSrc = figure.getAttribute("data-hover"); // Get the hover image source
+          const hoverImageSrc = figure.getAttribute("data-hover"); 
     
           figure.addEventListener("mouseenter", () => {
-            img.style.transform = "scale(1.1)"; // Scale up the image
-            img.src = hoverImageSrc; // Change the image source
+            img.style.transform = "scale(1.1)"; 
+            img.src = hoverImageSrc; 
           });
     
           figure.addEventListener("mouseleave", () => {
-            img.style.transform = "scale(1)"; // Restore the original scale
+            img.style.transform = "scale(1)"; 
             img.src = originalImageSrc;
           });
         });
@@ -163,18 +163,31 @@ if ($results->num_rows > 0) {
     echo '</div';
 } else {
     consoleMsg("No results found for the search term: $searchTerm");
-    echo '<div class="no-results" style="font-size: 2rem; color: gray; text-align: center;">No recipes found. Please try another keyword!</div>';
-}
+    echo '<div class="no-results" style="font-size: 1.75rem; color: gray; text-align: center;">No recipes found for: <em>' . htmlspecialchars($searchTerm) . '</em>. Please try another keyword!</div>';
+     echo '<div style="text-align: center;"><img src="images/vector/result.png" alt="Additional Image" style="width: 100%; max-width: 27%; opacity: 0.7;"></div>';}
 echo '</div>'
 ?>
 </div>
-</div>
-
-  
-
-
-
-  </div>
+<br>
+<br>
+<hr class="white-line" />
+<br />
+<br />
+<br />
+  <div class="footer">
+      <img
+        src="images/vector/big-logo.png"
+        alt="Image 4"
+        class="image"
+        width="25%"
+      />
+      <h3>© 2023 Rosie Nguyen - NomNom</h3>
+      <h5>
+        "Stay updated with mouthwatering recipes, culinary tips, and exclusive
+        offers. <br />
+        Subscribe to our newsletter for a daily dose of delicious inspiration!"
+      </h5>
+      <button class="newsletter-button">Subscribe to our Newsletter</button>
 
 </body>
 
